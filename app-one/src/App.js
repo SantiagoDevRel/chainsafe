@@ -22,22 +22,14 @@ function App() {
     }
   }
 
-  async function getBalance(address) {
-    const balance = String(await web3.eth.getBalance(address));
-    const toEth = web3.utils.fromWei(balance, "ether");
-    return toEth;
+  async function sendFundsAndMessage(msg, dnt) {
+    console.log("Sending message:", msg, "Donation:", dnt);
+    // TODO: Add logic to send funds and message to the contract
   }
 
-  async function sendFundsAndMessage(messageToSend) {
-    console.log("Sending message:", messageToSend, "Donation:", donation);
-
-    // TODO: Add logic to send funds and message to the blockchain
-    // For now, let's just update the lastMessage state
-  }
-
-  async function retrieveLastMessage() {
+  async function getMessage() {
     setLastMessage("Last message");
-    // TODO: Add logic to retrieve the last message from the blockchain and update the lastMessage state
+    // TODO: Call getMessage()
   }
 
   return (
@@ -57,7 +49,7 @@ function App() {
         Buy Me a Coffee ☕
       </button>
       <div>
-        <button onClick={retrieveLastMessage} className="retrieve-button">
+        <button onClick={getMessage} className="retrieve-button">
           Retrieve Last Message
         </button>
       </div>
