@@ -1,38 +1,73 @@
-.App {
+/* App.css */
+
+body {
+  background-image: url("./Components/chainsafe2.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 92vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.856); /* Adjust the alpha value for the desired darkness */
+  z-index: -1; /* Place the pseudo-element behind the content */
+}
+
+.container {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  margin: 50px auto; /* Center the container horizontally */
+  max-width: 400px; /* Set a maximum width for better readability */
+  color: #ffff48;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: center; /* Vertically center the content */
+  height: 93vh;
 }
 
-.App-link {
-  color: #61dafb;
+.connected-wallet {
+  margin-top: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.connect-wallet,
+.buy-coffee-button,
+.retrieve-button {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #ffff48;
+  border: none;
+  color: #231f20;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 5px; /* Subtle border-radius */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin-bottom: 10px; /* Added margin */
+}
+
+.connect-wallet:hover,
+.buy-coffee-button:hover,
+.retrieve-button:hover {
+  background-color: #231f20;
+  color: #ffff48;
+}
+
+.message-input,
+.donation-input {
+  padding: 10px;
+  margin-bottom: 10px;
+  width: calc(100% - 20px); /* Adjusted width for better readability */
+  box-sizing: border-box; /* Include padding and border in the element's total width */
+}
+
+.last-message {
+  margin-top: 20px;
+  font-weight: bold;
 }
