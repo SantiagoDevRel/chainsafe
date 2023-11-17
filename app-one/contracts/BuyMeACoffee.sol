@@ -19,6 +19,11 @@ contract Coffee {
         return lastMessage;
     }
 
+    function withdrawFunds() external {
+        uint256 _balance = address(this).balance;
+        (bool success,) = payable(owner).call{value: _balance}("");
+        require(sucess, "Transfer failed");
+    }
 
 
 
