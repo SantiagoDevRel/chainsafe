@@ -10,3 +10,4 @@
 8. add css
 9. contract deployed to 0x64c68599D8dC48DEb2653d11bc64B8BDA6948Ce4
 10. add homepage "." to package.json
+11. remove artifacts from gitignore
