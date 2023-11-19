@@ -5,8 +5,9 @@ contract Coffee {
     address private owner;
     string private lastMessage;
 
-    constructor() {
+    constructor(string memory _firstMessage) {
         owner = msg.sender;
+        lastMessage = _firstMessage;
     }
 
     function sendFundAndMessage(string memory _msg) external payable {
