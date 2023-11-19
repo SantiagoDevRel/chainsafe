@@ -35,7 +35,7 @@ function App() {
   }
 
   async function sendFundsAndMessage(msg, val) {
-    if (msg.trim() == "" || val.trim() == "" || val.trim() <= 0) {
+    if (msg.trim() === "" || val.trim() === "" || val.trim() <= 0) {
       alert("Please send funds and write a message :)");
     } else {
       try {
