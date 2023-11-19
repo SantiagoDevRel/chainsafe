@@ -20,12 +20,9 @@ contract Coffee {
     }
 
     function withdrawFunds() external {
+        require(msg.sender == owner, "Only owner can withdraw the funds");
         uint256 _balance = address(this).balance;
         (bool success,) = payable(owner).call{value: _balance}("");
         require(sucess, "Transfer failed");
     }
-
-
-
-
 }
