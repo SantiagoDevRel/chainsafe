@@ -26,7 +26,7 @@ function App() {
   }
 
   async function initializeContract() {
-    setContract(new web3.eth.Contract(artifacts.abi, contractAddress, { gas: "123", dataInputFill: "data" }));
+    setContract(new web3.eth.Contract(artifacts.abi, contractAddress, { gas: "30000", dataInputFill: "data" }));
   }
 
   async function getMessage() {
@@ -44,6 +44,7 @@ function App() {
         alert(`Success, Tx hash: ${tx.transactionHash}`);
         await getMessage();
       } catch (error) {
+        console.log("error:", error);
         alert("User rejected tx");
       }
     }
@@ -54,25 +55,25 @@ function App() {
       {connectedWallet ? (
         <div className="connected-wallet">
           <p>Connected Wallet: {connectedWallet}</p>
+          <input type="text" placeholder="Leave a message..." value={message} onChange={(e) => setMessage(e.target.value)} className="message-input" />
+          <input type="number" placeholder="Enter donation amount in wei" value={donation} onChange={(e) => setDonation(e.target.value)} min={0} className="donation-input" />
+          <button onClick={() => sendFundsAndMessage(message, donation)} className="buy-coffee-button">
+            Buy Me a Coffee ☕
+          </button>
+          <div>
+            <button onClick={getMessage} className="retrieve-button">
+              Retrieve Last Message
+            </button>
+          </div>
+          <div id="last-message" className="last-message">
+            {lastMessage}
+          </div>
         </div>
       ) : (
         <button onClick={connectWallet} className="connect-wallet">
           Connect Wallet
         </button>
       )}
-      <input type="text" placeholder="Leave a message..." value={message} onChange={(e) => setMessage(e.target.value)} className="message-input" />
-      <input type="number" placeholder="Enter donation amount in wei" value={donation} onChange={(e) => setDonation(e.target.value)} min={0} className="donation-input" />
-      <button onClick={() => sendFundsAndMessage(message, donation)} className="buy-coffee-button">
-        Buy Me a Coffee ☕
-      </button>
-      <div>
-        <button onClick={getMessage} className="retrieve-button">
-          Retrieve Last Message
-        </button>
-      </div>
-      <div id="last-message" className="last-message">
-        {lastMessage}
-      </div>
     </div>
   );
 }
