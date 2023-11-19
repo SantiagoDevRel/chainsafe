@@ -1,3 +1,4 @@
+require("@nomicfoundation/hardhat-verify");
 require("@nomicfoundation/hardhat-toolbox");
 require("dotenv").config();
 
@@ -10,8 +11,11 @@ module.exports = {
   },
   networks: {
     sepolia: {
-      accounts: ["0x" + process.env.pk],
       url: process.env.sepolia,
+      accounts: [`0x` + process.env.pk],
     },
+  },
+  etherscan: {
+    apiKey: `${process.env.apikey}`,
   },
 };
