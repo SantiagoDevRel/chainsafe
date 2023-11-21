@@ -26,8 +26,8 @@ function App() {
   }
 
   async function initializeContract() {
-    const contract = new web3.eth.Contract(artifacts.abi, contractAddress);
-    setContract(contract);
+    const Contract = new web3.eth.Contract(artifacts.abi, contractAddress);
+    setContract(Contract);
   }
 
   async function getMessage() {
