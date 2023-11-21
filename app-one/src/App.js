@@ -26,7 +26,7 @@ function App() {
   }
 
   async function initializeContract() {
-    setContract(new web3.eth.Contract(artifacts.abi, contractAddress, { gas: "30000", dataInputFill: "data" }));
+    setContract(new web3.eth.Contract(artifacts.abi, contractAddress, { gas: "123", dataInputFill: "data" }));
   }
 
   async function getMessage() {
