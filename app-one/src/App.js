@@ -30,8 +30,12 @@ function App() {
   }
 
   async function getMessage() {
-    const lastMsg = await contract.methods.getLastMessage().call();
-    setLastMessage(lastMsg);
+    try {
+      const lastMsg = await contract.methods.getLastMessage().call();
+      setLastMessage(lastMsg);
+    } catch (error) {
+      console.log("error call:", error);
+    }
   }
 
   async function sendFundsAndMessage(msg, val) {
@@ -44,7 +48,7 @@ function App() {
         alert(`Success, Tx hash: ${tx.transactionHash}`);
         await getMessage();
       } catch (error) {
-        console.log("error:", error);
+        console.log("error tx:", error);
         alert("User rejected tx");
       }
     }
